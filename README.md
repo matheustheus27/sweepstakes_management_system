@@ -18,3 +18,6 @@ Java was selected for its familiarity to students.
     javac Index.java
 ##### Step 2: Run the program
     java Index
+
+#### Screenshots
+<img src="https://github.com/matheustheus27/sweepstakes_management_system/tree/main/Images/index.png" alt="Home Screen" width="200"/> <img src="https://github.com/matheustheus27/sweepstakes_management_system/tree/main/Images/auth.png" alt="Auth Screen" width="200"/> <img src="https://github.com/matheustheus27/sweepstakes_management_system/tree/main/Images/signup.png" alt="Sig-up Screen" width="200"/> <img src="https://github.com/matheustheus27/sweepstakes_management_system/tree/main/Images/login.png" alt="Login Screen" width="200"/> <img src="https://github.com/matheustheus27/sweepstakes_management_system/tree/main/Images/common_user_panel.png" alt="Common User Panel Screen" width="200"/> <img src="https://github.com/matheustheus27/sweepstakes_management_system/tree/main/Images/manager_user_panel.png" alt="Manager User Panel Screen" width="200"/>

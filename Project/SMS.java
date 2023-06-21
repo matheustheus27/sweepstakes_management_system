@@ -165,7 +165,7 @@ public class SMS {
     private void panelCommon() {
         int option;
         do {
-            System.out.println("----- SMS - Painel de Administrador -----");
+            System.out.println("----- SMS - Painel de Usuario -----");
             System.out.println("1. Cadastrar Sorteio");
             System.out.println("2. Cadastrar Item");
             System.out.println("3. Listar Meus Sorteios");
