@@ -1,2 +1,2 @@
-# sweepstakes_management_system
-Sweepstakes Management System (Project developed for the discipline Software Quality)
+# SMS - Sweepstakes Management System
+This project was developed for the discipline Software Quality at CEFET MG
