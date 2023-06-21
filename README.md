@@ -21,7 +21,7 @@ Java was selected for its familiarity to students.
 ##### Step 2: Run the program
     java Index
 ##### Step 3: Create a User
-At the Sign-up prompt, if you want create a manager user, the hash code is "ADMIN", for common user, you can type any word in the hash.
+At the Sign-up prompt, if you want create a manager user, the hash code is `ADMIN`, for common user, you can type any word in the hash.
 ##### Step 4: Login and Use System
 At the Login prompt, you must use the registered credentials. The system will recognize the correct user type and redirect you to the panel.
 
