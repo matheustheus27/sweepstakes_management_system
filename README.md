@@ -14,7 +14,7 @@ The Class Diagram (in pt-BR), can be found at: [Docs/ClassDiagram.pdf](https://g
 Java was selected for its familiarity to students.
 
 #### How to Compile and Run
-        Step 1: Compile the file Index.java
-            javac Index.java
-        Step 2: Run the program
-            java Index
+    Step 1: Compile the file Index.java
+        javac Index.java
+    Step 2: Run the program
+        java Index
