@@ -9,6 +9,7 @@ import java.util.Random;
 
 import Items.Objects.Item;
 import Response.Response;
+import Rules.Objects.Rule;
 import Users.Objects.Common;
 import Users.Objects.User;
 
@@ -18,7 +19,7 @@ public class Sweepstake {
     private User owner;
     private String overview;
     private String description;
-    private ArrayList<String> rules;
+    private Map<String, Rule> rules;
 
     private Map<String, User> entrants;
     private Map<String, Item> itemsRaffled;
@@ -36,7 +37,7 @@ public class Sweepstake {
     //#endregion
 
     //#region CONSTRUCTORS
-    public Sweepstake(User owner, String overview, String description, ArrayList<String> rules) {
+    public Sweepstake(User owner, String overview, String description, Map<String, Rule> rules) {
         this.id = "SWP" + (int) (Math.random() * 10) + Instant.now();
 
         this.owner = owner;
@@ -74,14 +75,14 @@ public class Sweepstake {
         this.description = description;
     }
 
-    public ArrayList<String> getRules() {
+    public Map<String, Rule> getRules() {
         return rules;
     }
-    public void setRule(String rules) {
-        this.rules.add(rules);
+    public void setRule(Rule rule) {
+        this.rules.put(rule.getId(), rule);
     }
-    public void removeRule(String rule) {
-        this.rules.remove(rule);
+    public void removeRule(String id) {
+        this.rules.remove(id);
     }
 
     public Response setItems(Item item) {

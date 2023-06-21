@@ -30,6 +30,11 @@ public class CommonController {
     public Response makeSweepstake(String id) {
         return user.makeSweepstake(id);
     }
+    public Response checkForSweepstake() {
+        if(this.user.getSweepstakes().isEmpty()) {return Response.NOT_FOUND;}
+
+        return Response.OK;
+    }
 
     public void registerItem(Item item) {
         user.registerItem(item);
@@ -39,6 +44,11 @@ public class CommonController {
     }
     public void removeItem(Item item) {
         user.removeItem(item);
+    }
+    public Response checkForItems() {
+        if(this.user.getItems().isEmpty()) {return Response.NOT_FOUND;}
+
+        return Response.OK;
     }
     //#endregion
 }
