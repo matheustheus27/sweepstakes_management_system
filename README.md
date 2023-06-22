@@ -26,7 +26,7 @@ The `Rules` represent the conditions applied to a draw, in its folder, there is 
 The `Sweepstakes` represent the draws performed in the system, in its folder, there is the `Objects\Sweepstake.java`, the abstraction of the draw, and the `Controllers\SweepstakeController.java`, which is responsible for managing all the draws and persisting them in the DataBase.
 ##### Users
 Users contains all the user types on the system, `Common` and `Manager`, and the generalized `User`.
-The `Objects`User.java` is the generalized abstraction of User, and the `Controllers`UserController.java` is responsible for managing authentication and session for all user types.
+The `Objects\User.java` is the generalized abstraction of User, and the `Controllers\UserController.java` is responsible for managing authentication and session for all user types.
 The `Objects\Common.java` is the standard user abstraction, and the `Controllers\CommonController.java` is responsible for managing the operations performed for standard users.
 The `Objects\Manager.java` is the abstraction of the administrator user, and the `Controllers\ManagerController.java` is responsible for managing the operations performed for the administrator users.
 ##### Other Files
