@@ -42,6 +42,9 @@ public class CommonController {
     public void listItems() {
         user.listItems();
     }
+    public void listItemsAuthorized() {
+        user.listItems();
+    }
     public void removeItem(Item item) {
         user.removeItem(item);
     }
@@ -49,6 +52,13 @@ public class CommonController {
         if(this.user.getItems().isEmpty()) {return Response.NOT_FOUND;}
 
         return Response.OK;
+    }
+    public Response checkForItemsAuthorized() {
+        for(Item item: user.getItems().values()) {
+            if(item.getStatus().equals(Item.Status.AUTHORIZED)){return Response.OK;}
+        }
+
+        return Response.NOT_FOUND;
     }
     //#endregion
 }

@@ -79,9 +79,14 @@ public class Common extends User {
             item.displayInformation();
         }
     }
-    public int removeItem(Item item) {
+    public void listItemsAuthorized() {
+        for (Item item : items.values()) {
+            if(item.getStatus().equals(Item.Status.AUTHORIZED)) {item.displayInformation();}
+        }
+    }
+    public Response removeItem(Item item) {
         items.remove(item.getId());
 
-        return 200;  
+        return Response.OK;  
     }
 }

@@ -21,6 +21,7 @@ public class Item {
         PENDING,
         AUTHORIZED,
         UNAUTHORIZED,
+        RESERVED
     }
     //#endregion
 

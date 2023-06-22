@@ -273,7 +273,8 @@ public class SMS {
         System.out.println("----- SMS - Filtro de Listagem -----");
         System.out.println("1. Pendentes");
         System.out.println("2. Autorizados");
-        System.out.println("3. Rejeitados");
+        System.out.println("3. Reservados");
+        System.out.println("4. Rejeitados");
         System.out.println("0. Todos");
 
         switch(scanner.nextInt()) {
@@ -282,6 +283,9 @@ public class SMS {
             break;
             case 2:
                 itemController.listItems(Items.Objects.Item.Status.AUTHORIZED);
+            break;
+            case 4:
+                itemController.listItems(Items.Objects.Item.Status.RESERVED);
             break;
             case 3:
                 itemController.listItems(Items.Objects.Item.Status.UNAUTHORIZED);
@@ -380,9 +384,10 @@ public class SMS {
     //#region FUNCTIONS COMMON
     private void registerSweepstake() {
         Map<String, Rule> rules = new HashMap<>();
+        Map<String, Item> items = new HashMap<>();
 
         scanner.nextLine();
-        if(commonController.checkForItems().equals(Response.OK)) {
+        if(commonController.checkForItems().equals(Response.OK) && commonController.checkForItemsAuthorized().equals(Response.OK)) {
             System.out.println("----- SMS - Rgistrar Sorteio -----");
             System.out.println("Digite a Resumo:");
             String overview = scanner.nextLine();
@@ -396,7 +401,9 @@ public class SMS {
                 rules = addRulesToSweepstake();
             }
 
-            Sweepstake sweepstake = new Sweepstake(userController.getSessionUser(), overview, description, rules);
+            items = addItemsToSweepstake();
+
+            Sweepstake sweepstake = new Sweepstake(userController.getSessionUser(), overview, description, rules, items);
 
             sweepstakeController.registerSweepstake(sweepstake);
             commonController.registerSweepstake(sweepstake);
@@ -456,10 +463,38 @@ public class SMS {
                 spweepstake.displayWinners();
             }
         } else {
-            joinSweepstake();
+            makeSweepstake();
         }
     }
     
+    private Map<String, Item> addItemsToSweepstake() {
+        Map<String, Item> items = new HashMap<>();
+
+        commonController.listItemsAuthorized();
+
+        do {
+            System.out.println("Digite o Id do Item a Ser Adicionado:");
+            String id = scanner.next();
+            Item item = itemController.findItem(id);
+
+            if(item.getStatus().equals(Item.Status.AUTHORIZED)) {
+                item.setStatus(Item.Status.RESERVED);
+
+                items.put(item.getId(), item);
+            }
+        
+            System.out.println("Deseja Adicionar um Novo Item(1)?");
+        } while(scanner.nextInt() == 1);
+
+        if(items.isEmpty()) {
+            System.out.println("Lista de Itens Vazia");
+
+            addItemsToSweepstake();
+        }
+
+        return items;
+    }
+
     private Map<String, Rule> addRulesToSweepstake() {
         Map<String, Rule> rules = new HashMap<>();
 

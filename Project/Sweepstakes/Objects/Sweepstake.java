@@ -37,16 +37,16 @@ public class Sweepstake {
     //#endregion
 
     //#region CONSTRUCTORS
-    public Sweepstake(User owner, String overview, String description, Map<String, Rule> rules) {
+    public Sweepstake(User owner, String overview, String description, Map<String, Rule> rules,  Map<String, Item> items) {
         this.id = "SWP" + (int) (Math.random() * 10) + Instant.now().getEpochSecond();
 
         this.owner = owner;
         this.overview = overview;
         this.description = description;
         this.rules = rules;
+        this.itemsRaffled = items;
 
         this.entrants = new HashMap<>();
-        this.itemsRaffled = new HashMap<>();
         this.selected = new HashMap<>();
         this.status = Status.PENDING;
     }
@@ -176,7 +176,8 @@ public class Sweepstake {
 
                 
                 item.setOwner(winner);
-
+                item.setStatus(Item.Status.AUTHORIZED);
+                
                 winner.registerItem(item);
                 owner.removeItem(item);
             }
