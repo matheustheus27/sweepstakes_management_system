@@ -12,6 +12,8 @@ The Software Specification (in pt-BR), can be found at: [Docs/SoftwareSpecificat
 The Class Diagram (in pt-BR), can be found at: [Docs/ClassDiagram.pdf](https://github.com/matheustheus27/sweepstakes_management_system/tree/main/Docs/ClassDiagram.pdf)
 
 The system uses prompt, for a simple implementation.
+
+
 #### Components Division
 The project is divided into components, each one its controller and objects, separated into folders with their respective files. The orginize of files and folders, is part of the idea of Software Patterns.
 ##### Items
@@ -31,8 +33,10 @@ The `Objects\Manager.java` is the abstraction of the administrator user, and the
 The `Index.java` is responsible for starting the system. 
 The `SMS.java` is responsible for starting all the controllers and showing the system prompts.
 
+
 #### Programming Language
 Java was selected for its familiarity to students.
+
 
 #### How to Compile and Run
 ##### Step 1: Compile the file Index.java
