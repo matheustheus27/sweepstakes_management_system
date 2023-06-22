@@ -35,7 +35,7 @@ The `SMS.java` is responsible for starting all the controllers and showing the s
 
 
 #### Programming Language
-Java was selected for its familiarity to students.
+[Java](https://dev.java/learn/) was selected for its familiarity to students.
 
 
 #### How to Compile and Run
@@ -48,5 +48,5 @@ At the Sign-up prompt, if you want create a manager user, the hash code is `ADMI
 ##### Step 4: Login and Use System
 At the Login prompt, you must use the registered credentials. The system will recognize the correct user type and redirect you to the panel.
 
-## Screenshots
+### Screenshots
 <img src="https://github.com/matheustheus27/sweepstakes_management_system/blob/main/Images/index.png?raw=true" alt="Home Screen" width="400"/> <img src="https://github.com/matheustheus27/sweepstakes_management_system/blob/main/Images/auth.png?raw=true" alt="Auth Screen" width="400"/> <img src="https://github.com/matheustheus27/sweepstakes_management_system/blob/main/Images/signup.png?raw=true" alt="Sig-up Screen" width="400"/> <img src="https://github.com/matheustheus27/sweepstakes_management_system/blob/main/Images/login.png?raw=true" alt="Login Screen" width="400"/> <img src="https://github.com/matheustheus27/sweepstakes_management_system/blob/main/Images/common_user_panel.png?raw=true" alt="Common User Panel Screen" width="400"/> <img src="https://github.com/matheustheus27/sweepstakes_management_system/blob/main/Images/manager_user_panel.png?raw=true" alt="Manager User Panel Screen" width="400"/>
