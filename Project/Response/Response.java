@@ -3,9 +3,9 @@ package Response;
 public enum Response {
     OK(200, "OK"),
     CREATED(201, "Criado com Sucesso"),
-    UNAUTHORIZED(401, "Procedimento não Autorizado"),
-    NOT_FOUND(406, "Dados não Encontrado"),
-    NOT_ACCEPTABLE(406, "Procedimento não Aceito"),
+    UNAUTHORIZED(401, "Procedimento nao Autorizado"),
+    NOT_FOUND(406, "Dados nao Encontrado"),
+    NOT_ACCEPTABLE(406, "Procedimento nao Aceito"),
     COMMON_ACCESS(700, "Bem Vindo ao Sistema"),
     MANAGER_ACCESS(701, "Bem Vindo ao Sistema");
 

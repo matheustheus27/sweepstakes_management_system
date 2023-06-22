@@ -3,6 +3,7 @@ package Rules.Controllers;
 import java.util.HashMap;
 import java.util.Map;
 
+import Response.Response;
 import Rules.Objects.Rule;
 
 public class RuleController {
@@ -33,6 +34,12 @@ public class RuleController {
 
     public void removeRule(String id) {
         rules.remove(id);
+    }
+
+    public Response checkForRule() {
+        if(this.rules.isEmpty()) {return Response.NOT_FOUND;}
+
+        return Response.OK;
     }
     //#endregion
 }

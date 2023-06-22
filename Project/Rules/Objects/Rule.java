@@ -41,7 +41,7 @@ public class Rule {
     public void displayInformation() {
         System.out.println("ID [" + getId() + "]");
         System.out.println("Nome: " + getName());
-        System.out.println("Descrição: " + getDescription());
+        System.out.println("Descricao: " + getDescription());
 
         System.out.println();
     }

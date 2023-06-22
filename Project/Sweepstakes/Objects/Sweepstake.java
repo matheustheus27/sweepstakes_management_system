@@ -38,7 +38,7 @@ public class Sweepstake {
 
     //#region CONSTRUCTORS
     public Sweepstake(User owner, String overview, String description, Map<String, Rule> rules) {
-        this.id = "SWP" + (int) (Math.random() * 10) + Instant.now();
+        this.id = "SWP" + (int) (Math.random() * 10) + Instant.now().getEpochSecond();
 
         this.owner = owner;
         this.overview = overview;
@@ -139,7 +139,7 @@ public class Sweepstake {
     public void displayInformation() {
         System.out.println("ID [" + getId() + "]");
         System.out.println("Resumo: " + getOverview());
-        System.out.println("Descrição: " + getDescription());
+        System.out.println("Descricao: " + getDescription());
         System.out.println("Status: " + getStatus());
 
         System.out.println("--- Items Sorteados ---");

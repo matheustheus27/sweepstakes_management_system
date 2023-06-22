@@ -26,7 +26,7 @@ public class Item {
 
     //#region CONSTRUCTORS
     public Item(User owner, String name, String description, String type) {
-        this.id = "ITM" + Instant.now();
+        this.id = "ITM" + Instant.now().getEpochSecond();
         this.status = Status.PENDING;
 
         this.owner = owner;
@@ -90,7 +90,7 @@ public class Item {
     public void displayInformation() {
         System.out.println("ID [" + getId() + "]");
         System.out.println("Nome: " + getName());
-        System.out.println("Descrição: " + getDescription());
+        System.out.println("Descricao: " + getDescription());
         System.out.println("Dono: " + getOwner().getName());
         System.out.println("Status: " + getStatus());
 

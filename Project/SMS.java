@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -58,7 +59,7 @@ public class SMS {
                     System.exit(0);
                 break;
                 default:
-                    System.out.println("Opção Não Reconhecida.");
+                    System.out.println("Opcao Nao Reconhecida.");
                 break;
             }
         } while (option != 2);
@@ -307,7 +308,7 @@ public class SMS {
             System.out.println("Digite o Nome:");
             String name = scanner.nextLine();
 
-            System.out.println("Digite a Descrição:");
+            System.out.println("Digite a Descricao:");
             String description = scanner.nextLine();
 
             Rule rule = new Rule(name, description);
@@ -378,17 +379,22 @@ public class SMS {
 
     //#region FUNCTIONS COMMON
     private void registerSweepstake() {
+        Map<String, Rule> rules = new HashMap<>();
+
         scanner.nextLine();
         if(commonController.checkForItems().equals(Response.OK)) {
             System.out.println("----- SMS - Rgistrar Sorteio -----");
             System.out.println("Digite a Resumo:");
             String overview = scanner.nextLine();
 
-            System.out.println("Digite a Descrição:");
+            System.out.println("Digite a Descricao:");
             String description = scanner.nextLine();
 
-            System.out.println("Deseja Adicionar Regras(1)?");
-            Map<String, Rule> rules = addRulesToSweepstake();
+
+            if(ruleController.checkForRule().equals(Response.OK)) {
+                System.out.println("Deseja Adicionar Regras(1)?");
+                rules = addRulesToSweepstake();
+            }
 
             Sweepstake sweepstake = new Sweepstake(userController.getSessionUser(), overview, description, rules);
 
@@ -403,7 +409,7 @@ public class SMS {
         System.out.println("Digite o Nome:");
         String name = scanner.nextLine();
 
-        System.out.println("Digite a Descrição:");
+        System.out.println("Digite a Descricao:");
         String description = scanner.nextLine();
 
         System.out.println("Digite o Tipo:");
@@ -474,6 +480,14 @@ public class SMS {
     //#endregion
 
     //#region FUNCTIONS SYSTEM
+    public static void clearConsole() throws IOException {
+        final String os = System.getProperty("os.name");
 
+        if (os.contains("Windows")) {
+            Runtime.getRuntime().exec("cls");
+        } else {
+            Runtime.getRuntime().exec("clear");
+        }
+    }
     //#endregion
 }
