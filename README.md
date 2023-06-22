@@ -1,10 +1,10 @@
-# SMS - Sweepstakes Management System
+## SMS - Sweepstakes Management System
 This project was developed for the discipline Software Quality at CEFET MG.
 
-        Docente: Kecia Aline Marques Ferreira
-	    Discente: Matheus Thiago de Souza Ferreira
+    Professor: Kecia Aline Marques Ferreira
+	Student: Matheus Thiago de Souza Ferreira
 
-## Project Description
+### Project Description
 The project was developed with the intention of applying software patterns learned in the classroom.
 
 The Software Specification (in pt-BR), can be found at: [Docs/SoftwareSpecification.pdf](https://github.com/matheustheus27/sweepstakes_management_system/tree/main/Docs/SoftwareSpecification.pdf)
