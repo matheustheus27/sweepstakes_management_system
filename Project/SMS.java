@@ -372,7 +372,7 @@ public class SMS {
         Item item;
 
         System.out.println("\n----- SMS - Analise de Item -----");
-        System.out.println("Digite o Id do Sorteio:");
+        System.out.println("Digite o Id do Item:");
         item = itemController.findItem(scanner.next());
 
         if(item != null) {
@@ -381,7 +381,7 @@ public class SMS {
             analyseItem();
         }
         
-        System.out.println("Deseja Autorizar (1) ou Rejeitar (2) o Sorteio?");
+        System.out.println("Deseja Autorizar (1) ou Rejeitar (2) o Item?");
         switch(scanner.next()) {
             case "1":
                 managerController.validateItem(item, true);
