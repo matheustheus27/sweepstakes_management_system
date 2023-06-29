@@ -120,7 +120,7 @@ public class SMS {
 
     //#region PANEL ACCESS
     private void panel(Response response) {
-        System.out.println(response.getMessage());
+        System.out.println(response.getMessage() + "\n");
 
         switch (response) {
             case MANAGER_ACCESS:
