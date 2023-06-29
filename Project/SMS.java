@@ -272,13 +272,14 @@ public class SMS {
     }
 
     private void listItems() {
-        System.out.println("\n----- SMS - Lista de Itens -----");
         System.out.println("--- Filtro de Listagem ---");
         System.out.println("1. Pendentes");
         System.out.println("2. Autorizados");
         System.out.println("3. Reservados");
         System.out.println("4. Rejeitados");
         System.out.println("0. Todos");
+        
+        System.out.println("\n----- SMS - Lista de Itens -----");
 
         switch(scanner.next()) {
             case "1":
