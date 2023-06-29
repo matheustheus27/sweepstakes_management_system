@@ -70,7 +70,7 @@ Default Rules List:
 
 
 #### How to Compile and Run
-##### Step 1: Navigate to the `/Project` folder
+##### Step 1: Navigate to the [/Project](https://github.com/matheustheus27/sweepstakes_management_system/tree/main/Project) folder
 ##### Step 2: Compile the file Index.java
     javac Index.java
 ##### Step 3: Run the Program
