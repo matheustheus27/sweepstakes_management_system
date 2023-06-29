@@ -67,13 +67,15 @@ public class SMS {
         String option;
         Response response = Response.NOT_FOUND;
 
-        System.out.println("----- SMS - Sistema de Gerenciamento de Sorteios -----");
+        System.out.println("\n----- SMS - Sistema de Gerenciamento de Sorteios -----");
         System.out.println("1. Login");
         System.out.println("2. Signup");
         System.out.println("0. Pagina Inicial");
 
         option = scanner.next();
         scanner.nextLine();
+
+        System.out.println();
 
         if(option.equals("1")) {
             response = login();
@@ -119,7 +121,7 @@ public class SMS {
 
     //#region PANEL ACCESS
     private void panel(Response response) {
-        System.out.println(response.getMessage() + "\n");
+        System.out.println("\n* " + response.getMessage() + " * \n");
 
         switch (response) {
             case MANAGER_ACCESS:
@@ -233,7 +235,8 @@ public class SMS {
     }
 
     private void listSweepstakes() {
-        System.out.println("----- SMS - Filtro de Listagem -----");
+        System.out.println("\n----- SMS - Lista de Sorteios -----");
+        System.out.println("--- Filtro de Listagem ---");
         System.out.println("1. Pendentes");
         System.out.println("2. Em Progresso");
         System.out.println("3. Finalizados");
@@ -257,16 +260,20 @@ public class SMS {
                 sweepstakeController.listSweepstakes();
             break;
         }
+        System.out.println();
     }
     //#endregion
 
     //#region FUNCTIONS ITEMS
     private void listItemsPerUser() {
-        commonController.listItems();;
+        System.out.println("\n----- SMS - Lista de Itens -----");
+        commonController.listItems();
+        System.out.println();
     }
 
     private void listItems() {
-        System.out.println("----- SMS - Filtro de Listagem -----");
+        System.out.println("\n----- SMS - Lista de Itens -----");
+        System.out.println("--- Filtro de Listagem ---");
         System.out.println("1. Pendentes");
         System.out.println("2. Autorizados");
         System.out.println("3. Reservados");
@@ -290,12 +297,15 @@ public class SMS {
                 itemController.listItems();
             break;
         }
+        System.out.println();
     }
     //#endregion
 
     //#region FUNCTIONS RULES
     private void listRules() {
+        System.out.println("\n----- Lista de Regras -----");
         ruleController.listRules();
+        System.out.println();
     }
     //#endregion
 
@@ -304,7 +314,7 @@ public class SMS {
         scanner.nextLine();
 
         if(userController.getSessionUser().getType().equals(User.Type.MANAGER)) {
-            System.out.println("----- SMS - Registrar Regra -----");
+            System.out.println("\n----- SMS - Registrar Regra -----");
             System.out.println("Digite o Nome:");
             String name = scanner.nextLine();
 
@@ -314,24 +324,28 @@ public class SMS {
             Rule rule = new Rule(name, description);
 
             ruleController.registerRule(rule);
+
+            System.out.println();
         }
     }
     private void removeRule() {
         scanner.nextLine();
 
         if(userController.getSessionUser().getType().equals(User.Type.MANAGER)) {
-            System.out.println("----- SMS - Remover Regra -----");
+            System.out.println("\n----- SMS - Remover Regra -----");
             System.out.println("Digite o Id:");
             String id = scanner.next();
 
             ruleController.removeRule(id);
+
+            System.out.println();
         }
     }
 
     private void analyseSweepstake() {
         Sweepstake spweepstake;
 
-        System.out.println("----- SMS - Analise de Sorteio -----");
+        System.out.println("\n----- SMS - Analise de Sorteio -----");
         System.out.println("Digite o Id do Sorteio:");
         spweepstake = sweepstakeController.findSweepstake(scanner.next());
 
@@ -350,12 +364,14 @@ public class SMS {
                 managerController.validateSweepstake(spweepstake, false);
             break;
         }
+
+        System.out.println();
     }
 
     private void analyseItem() {
         Item item;
 
-        System.out.println("----- SMS - Analise de Item -----");
+        System.out.println("\n----- SMS - Analise de Item -----");
         System.out.println("Digite o Id do Sorteio:");
         item = itemController.findItem(scanner.next());
 
@@ -374,6 +390,8 @@ public class SMS {
                 managerController.validateItem(item, false);
             break;
         }
+
+        System.out.println();
     }
     //#endregion
 
@@ -384,7 +402,7 @@ public class SMS {
 
         scanner.nextLine();
         if(commonController.checkForItems().equals(Response.OK) && commonController.checkForItemsAuthorized().equals(Response.OK)) {
-            System.out.println("----- SMS - Rgistrar Sorteio -----");
+            System.out.println("\n----- SMS - Registrar Sorteio -----");
             System.out.println("Digite a Resumo:");
             String overview = scanner.nextLine();
 
@@ -401,12 +419,14 @@ public class SMS {
 
             sweepstakeController.registerSweepstake(sweepstake);
             commonController.registerSweepstake(sweepstake);
+
+            System.out.println();
         }
     }
 
     private void registerItem() {
         scanner.nextLine();
-        System.out.println("----- SMS - Rgistrar Item -----");
+        System.out.println("\n----- SMS - Registrar Item -----");
         System.out.println("Digite o Nome:");
         String name = scanner.nextLine();
 
@@ -421,12 +441,14 @@ public class SMS {
 
         itemController.registerItem(item);
         commonController.registerItem(item);
+
+        System.out.println();
     }
 
     private void joinSweepstake() {
         Sweepstake spweepstake;
 
-        System.out.println("----- SMS - Participar de Sorteio -----");
+        System.out.println("\n----- SMS - Participar de Sorteio -----");
         System.out.println("Digite o Id do Sorteio:");
         spweepstake = sweepstakeController.findSweepstake(scanner.next());
 
@@ -441,12 +463,14 @@ public class SMS {
         if(response == Response.OK) {
             commonController.joinSweepstake(spweepstake);
         }
+
+        System.out.println();
     }
 
     private void makeSweepstake() {
         Sweepstake spweepstake;
 
-        System.out.println("----- SMS - Realizar Sorteio -----");
+        System.out.println("\n----- SMS - Realizar Sorteio -----");
         System.out.println("Digite o Id do Sorteio:");
        
         spweepstake = sweepstakeController.findSweepstake(scanner.next());
@@ -459,6 +483,8 @@ public class SMS {
         } else {
             makeSweepstake();
         }
+
+        System.out.println();
     }
     
     private Map<String, Item> addItemsToSweepstake() {
@@ -493,7 +519,7 @@ public class SMS {
         Map<String, Rule> rules = new HashMap<>();
 
         listRules();
-        
+
         System.out.println("Deseja Adicionar Regras(1)?");
         while(scanner.next().equals("1")) {
             System.out.println("Digite o Id da Regra a Ser Adicionada:");
