@@ -1,6 +1,5 @@
 package Rules.Controllers;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import Database.Database;

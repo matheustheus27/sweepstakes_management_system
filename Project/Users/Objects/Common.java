@@ -12,8 +12,8 @@ public class Common extends User {
     private Map<String, Sweepstake> sweepstakes;
     private Map<String, Sweepstake> sweepstakesJoined;
 
-    public Common(String cpf, String name, String password) {
-        super(cpf, name, password, Type.COMMON);
+    public Common(String username, String name, String password) {
+        super(username, name, password, Type.COMMON);
 
         this.items = new HashMap<>();
         this.sweepstakes = new HashMap<>();

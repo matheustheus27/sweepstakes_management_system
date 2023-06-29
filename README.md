@@ -30,8 +30,34 @@ The `Objects\User.java` is the generalized abstraction of User, and the `Control
 The `Objects\Common.java` is the standard user abstraction, and the `Controllers\CommonController.java` is responsible for managing the operations performed for standard users.
 The `Objects\Manager.java` is the abstraction of the administrator user, and the `Controllers\ManagerController.java` is responsible for managing the operations performed for the administrator users.
 ##### Other Files
-The `Index.java` is responsible for starting the system. 
+The `Index.java` is responsible for starting the system.
 The `SMS.java` is responsible for starting all the controllers and showing the system prompts.
+The `Database\Database.java` is a test facilitator, it instantiates the `users` and `rules` list, with some default data. There is no real database implemented.
+Default User List:
+    Manager:
+        Name: Administrador
+        User: admin
+        Password: admin
+
+        Name: Administrador 2
+        User: admin2
+        Password: admin2
+
+    Common:
+        Name: comum
+        User: comum
+        Password: comum
+
+        Name: comum 2
+        User: comum2
+        Password: comum2
+
+Default Rules List:
+    Name: Idade
+    Description: O participante deve ser maior de idade
+
+    Name: Localidade
+    Description: O participante deve residir no Brasil
 
 
 #### Programming Language

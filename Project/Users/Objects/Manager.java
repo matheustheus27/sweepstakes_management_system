@@ -5,8 +5,8 @@ import Response.Response;
 import Sweepstakes.Objects.Sweepstake;
 
 public class Manager extends User {
-    public Manager(String cpf, String name, String password) {
-        super(cpf, name, password, Type.MANAGER);
+    public Manager(String username, String name, String password) {
+        super(username, name, password, Type.MANAGER);
     }
 
     public Response analizeSweepstake(Sweepstake sweepstake, boolean auth) {

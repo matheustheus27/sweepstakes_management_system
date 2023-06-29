@@ -55,11 +55,8 @@ public class SMS {
                 case "1":
                     auth();
                 break;
-                case "2":
-                    System.exit(0);
-                break;
                 default:
-                    System.out.println("Opcao Nao Reconhecida.");
+                    System.exit(0);
                 break;
             }
         } while (!option.equals("2"));
@@ -94,7 +91,7 @@ public class SMS {
               
         System.out.println("----- SMS - Tela de Login -----");
 
-        System.out.println("Digite o CPF:");
+        System.out.println("Digite o Usuario:");
         String cpf = scanner.next();
 
         System.out.println("Digite a Senha:");
@@ -108,7 +105,7 @@ public class SMS {
         System.out.println("Digite o Nome:");
         String name = scanner.nextLine();
 
-        System.out.println("Digite o CPF:");
+        System.out.println("Digite o Usuario:");
         String cpf = scanner.next();
 
         System.out.println("Digite a Senha:");

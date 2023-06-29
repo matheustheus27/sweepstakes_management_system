@@ -16,8 +16,8 @@ public class User {
     //#endregion
 
     //#region CONSTRUCTORS
-    public User(String cpf, String name, String password, Type type) {
-        this.id = cpf;
+    public User(String username, String name, String password, Type type) {
+        this.id = username;
         this.name = name;
         this.password = password;
         this.type = type;
