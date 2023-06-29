@@ -37,6 +37,7 @@ The `SMS.java` is responsible for starting all the controllers and showing the s
 The `Database\Database.java` is a test facilitator, it instantiates the `users` and `rules` list, with some default data. There is no real database implemented.
 
 Default User List:
+
     Manager:
         Name: Administrador
         User: admin
@@ -56,6 +57,7 @@ Default User List:
         Password: comum2
 
 Default Rules List:
+
     Name: Idade
     Description: O participante deve ser maior de idade
 
