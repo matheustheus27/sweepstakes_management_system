@@ -391,9 +391,7 @@ public class SMS {
             System.out.println("Digite a Descricao:");
             String description = scanner.nextLine();
 
-
             if(ruleController.checkForRule().equals(Response.OK)) {
-                System.out.println("Deseja Adicionar Regras(1)?");
                 rules = addRulesToSweepstake();
             }
 
@@ -495,7 +493,8 @@ public class SMS {
         Map<String, Rule> rules = new HashMap<>();
 
         listRules();
-
+        
+        System.out.println("Deseja Adicionar Regras(1)?");
         while(scanner.next().equals("1")) {
             System.out.println("Digite o Id da Regra a Ser Adicionada:");
             String id = scanner.next();

@@ -147,6 +147,11 @@ public class Sweepstake {
             item.displayInformation();
         }
 
+        System.out.println("--- Regras ---");
+        for (Rule rule : rules.values()) {
+            rule.displayInformation();
+        }
+
         System.out.println();
     }
 
