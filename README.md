@@ -85,4 +85,4 @@ At the Login prompt, you must use the registered credentials. The system will re
 
 
 ### Video
-[SMS - Sweepstakes Management System](https://www.youtube.com/watch?v=yyRMc8m-QdA)
+[![SMS - Sweepstakes Management System](https://img.youtube.com/vi/yyRMc8m-QdA/mqdefault.jpg)](https://www.youtube.com/watch?v=yyRMc8m-QdA)
