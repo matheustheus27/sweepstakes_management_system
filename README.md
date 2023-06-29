@@ -70,13 +70,14 @@ Default Rules List:
 
 
 #### How to Compile and Run
-##### Step 1: Compile the file Index.java
+##### Step 1: Navigate to the `/Project` folder
+##### Step 2: Compile the file Index.java
     javac Index.java
-##### Step 2: Run the Program
+##### Step 3: Run the Program
     java Index
-##### Step 3: Create a User
+##### Step 4: Create a User
 At the Sign-up prompt, if you want create a manager user, the hash code is `ADMIN`, for common user, you can type any word in the hash.
-##### Step 4: Login and Use System
+##### Step 5: Login and Use System
 At the Login prompt, you must use the registered credentials. The system will recognize the correct user type and redirect you to the panel.
 
 ### Screenshots
