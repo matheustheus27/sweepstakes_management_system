@@ -3,6 +3,7 @@ package Rules.Controllers;
 import java.util.HashMap;
 import java.util.Map;
 
+import Database.Database;
 import Response.Response;
 import Rules.Objects.Rule;
 
@@ -13,7 +14,7 @@ public class RuleController {
 
     //#region CONSTRUCTOR
     public RuleController() {
-        this.rules = new HashMap<>();
+        this.rules = Database.getRules();
     }
     //#endregion
 

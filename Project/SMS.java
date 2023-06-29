@@ -42,33 +42,33 @@ public class SMS {
 
     //#region MAIN
     public void index() {
-        int option;
+        String option;
         
         do {
             System.out.println("----- SMS - Sistema de Gerenciamento de Sorteios -----");
             System.out.println("1. Login/Cadastro de Usuarios");
             System.out.println("2. Sair");
 
-            option = scanner.nextInt();
+            option = scanner.next();
 
             switch (option) {
-                case 1:
+                case "1":
                     auth();
                 break;
-                case 2:
+                case "2":
                     System.exit(0);
                 break;
                 default:
                     System.out.println("Opcao Nao Reconhecida.");
                 break;
             }
-        } while (option != 2);
+        } while (!option.equals("2"));
     }
     //#endregion
 
     //#region AUTHENTICATION
     public void auth() {
-        int opcao;
+        String option;
         Response response = Response.NOT_FOUND;
 
         System.out.println("----- SMS - Sistema de Gerenciamento de Sorteios -----");
@@ -76,12 +76,12 @@ public class SMS {
         System.out.println("2. Signup");
         System.out.println("0. Pagina Inicial");
 
-        opcao = scanner.nextInt();
+        option = scanner.next();
         scanner.nextLine();
 
-        if(opcao == 1) {
+        if(option.equals("1")) {
             response = login();
-        } else if(opcao == 2) {
+        } else if(option.equals("2")) {
             response = singnup();
         } else {
             index();
@@ -141,7 +141,7 @@ public class SMS {
     }
 
     private void panelManager() {
-        int option;
+        String option;
         do {
             System.out.println("----- SMS - Painel de Administrador -----");
             System.out.println("1. Adicionar Regra");
@@ -153,36 +153,36 @@ public class SMS {
             System.out.println("7. Analisar Item");
             System.out.println("0. Sair");
 
-            option = scanner.nextInt();
+            option = scanner.next();
 
             switch(option) {
-                case 1:
+                case "1":
                     registerRule();
                 break;
-                case 2:
+                case "2":
                     listSweepstakes();
                 break;
-                case 3:
+                case "3":
                     listItems();
                 break;
-                case 4:
+                case "4":
                     listRules();
                 break;
-                case 5:
+                case "5":
                     removeRule();
                 break;
-                case 6:
+                case "6":
                     analyseSweepstake();
                 break;
-                case 7:
+                case "7":
                     analyseItem();
                 break;
             }
-        } while(option != 0);
+        } while(!option.equals("0"));
     }
 
     private void panelCommon() {
-        int option;
+        String option;
         do {
             System.out.println("----- SMS - Painel de Usuario -----");
             System.out.println("1. Cadastrar Sorteio");
@@ -195,35 +195,35 @@ public class SMS {
             System.out.println("8. Sortear");
             System.out.println("0. Sair");
 
-            option = scanner.nextInt();
+            option = scanner.next();
 
             switch(option) {
-                case 1:
+                case "1":
                     registerSweepstake();
                 break;
-                case 2:
+                case "2":
                     registerItem();
                 break;
-                case 3:
+                case "3":
                     listSweepstakesPerUser();
                 break;
-                case 4:
+                case "4":
                     listItemsPerUser();;
                 break;
-                case 5:
+                case "5":
                     listSweepstakesPerEntrant();
                 break;
-                case 6:
+                case "6":
                     listSweepstakes();
                 break;
-                case 7:
+                case "7":
                     joinSweepstake();
                 break;
-                case 8:
+                case "8":
                     makeSweepstake();
                 break;
             }
-        } while(option != 0);
+        } while(!option.equals("0"));
     }
     //#endregion
 
@@ -244,17 +244,17 @@ public class SMS {
         System.out.println("4. Cancelados");
         System.out.println("0. Todos");
 
-        switch(scanner.nextInt()) {
-            case 1:
+        switch(scanner.next()) {
+            case "1":
                 sweepstakeController.listSweepstakes(Status.PENDING);
             break;
-            case 2:
+            case "2":
                 sweepstakeController.listSweepstakes(Status.IN_PROGRESS);
             break;
-            case 3:
+            case "3":
                 sweepstakeController.listSweepstakes(Status.FINISHED);
             break;
-            case 4:
+            case "4":
                 sweepstakeController.listSweepstakes(Status.CANCELLED);
             break;
             default:
@@ -277,17 +277,17 @@ public class SMS {
         System.out.println("4. Rejeitados");
         System.out.println("0. Todos");
 
-        switch(scanner.nextInt()) {
-            case 1:
+        switch(scanner.next()) {
+            case "1":
                 itemController.listItems(Items.Objects.Item.Status.PENDING);
             break;
-            case 2:
+            case "2":
                 itemController.listItems(Items.Objects.Item.Status.AUTHORIZED);
             break;
-            case 4:
+            case "4":
                 itemController.listItems(Items.Objects.Item.Status.RESERVED);
             break;
-            case 3:
+            case "3":
                 itemController.listItems(Items.Objects.Item.Status.UNAUTHORIZED);
             break;
             default:
@@ -346,11 +346,11 @@ public class SMS {
         }
         
         System.out.println("Deseja Autorizar (1) ou Rejeitar (2) o Sorteio?");
-        switch(scanner.nextInt()) {
-            case 1:
+        switch(scanner.next()) {
+            case "1":
                 managerController.validateSweepstake(spweepstake, true);
             break;
-            case 2:
+            case "2":
                 managerController.validateSweepstake(spweepstake, false);
             break;
         }
@@ -370,11 +370,11 @@ public class SMS {
         }
         
         System.out.println("Deseja Autorizar (1) ou Rejeitar (2) o Sorteio?");
-        switch(scanner.nextInt()) {
-            case 1:
+        switch(scanner.next()) {
+            case "1":
                 managerController.validateItem(item, true);
             break;
-            case 2:
+            case "2":
                 managerController.validateItem(item, false);
             break;
         }
@@ -484,7 +484,7 @@ public class SMS {
             }
         
             System.out.println("Deseja Adicionar um Novo Item(1)?");
-        } while(scanner.nextInt() == 1);
+        } while(scanner.next().equals("1"));
 
         if(items.isEmpty()) {
             System.out.println("Lista de Itens Vazia");
@@ -500,7 +500,7 @@ public class SMS {
 
         listRules();
 
-        while(scanner.nextInt() == 1) {
+        while(scanner.next().equals("1")) {
             System.out.println("Digite o Id da Regra a Ser Adicionada:");
             String id = scanner.next();
             Rule rule = ruleController.findRule(id);

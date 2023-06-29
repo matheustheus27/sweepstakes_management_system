@@ -3,6 +3,7 @@ package Users.Controllers;
 import java.util.HashMap;
 import java.util.Map;
 
+import Database.Database;
 import Response.Response;
 import Users.Objects.Common;
 import Users.Objects.Manager;
@@ -17,7 +18,7 @@ public class UserController {
     
     //#region CONSTRUCTOR
     public UserController() {
-        this.users = new HashMap<>();
+        this.users = Database.getUsers();
     }
     //#endregion
 
