@@ -108,6 +108,8 @@ java Index
   <a href="./Images/">
     <img src="./cover/photo-gallery-cover.jpg" width="45%" style="margin-right: 20px;" alt="View Screenshot Gallery"/>
   </a>
+  <br>
+  <br>
   <a href="https://www.youtube.com/watch?v=yyRMc8m-QdA">
     <img src="./cover/demo-video-cover.jpg" width="45%" alt="Watch Demo Video"/>
   </a>
