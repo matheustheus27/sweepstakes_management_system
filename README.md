@@ -1,88 +1,114 @@
-## SMS - Sweepstakes Management System
-This project was developed for the discipline Software Quality at CEFET MG.
+# SMS — Sweepstakes Management System 🎟️🛡️
 
-    Professor: Kecia Aline Marques Ferreira
-	Student: Matheus Thiago de Souza Ferreira
+A CLI-driven architectural software system engineered to manage dynamic sweepstake lifecycles, entry validation, and partitioned user permission hierarchies. This project was developed as a practical environment to implement GoF (Gang of Four) software patterns and architectural paradigms for the **Software Quality** course in the Computer Engineering curriculum at CEFET-MG.
 
-### Project Description
-The project was developed with the intention of applying software patterns learned in the classroom.
+---
 
-The Software Specification (in pt-BR), can be found at: [Docs/SoftwareSpecification.pdf](https://github.com/matheustheus27/sweepstakes_management_system/tree/main/Docs/SoftwareSpecification.pdf)
+## 👥 Authorship & Faculty
 
-The Class Diagram (in pt-BR), can be found at: [Docs/ClassDiagram.pdf](https://github.com/matheustheus27/sweepstakes_management_system/tree/main/Docs/ClassDiagram.pdf)
+* **Professor:** Kécia Aline Marques Ferreira
+* **Student:** Matheus Thiago de Souza Ferreira
 
-The system uses prompt, for a simple implementation.
+---
 
+## 🛠️ Software Architecture & Component Modeling
 
-#### Components Division
-The project is divided into components, each one its controller and objects, separated into folders with their respective files. The orginize of files and folders, is part of the idea of Software Patterns.
-##### Items
-The `Items` represent the objects drawn on the system, in its folder, there is the `Objects\Item.java`, the Item abstraction, and the `Controllers\ItemController.java`, which is responsible for managing all the Items and persisting them to the DataBase.
-##### Response
-The `Response.java` is an enumerative class, which is responsible for issuing responses and communicating with all components of the system. It helps to standardize and better understand the service status of each component.
-##### Rules
-The `Rules` represent the conditions applied to a draw, in its folder, there is the `Objects\RuleObjects.java`, the Rule abstraction, and the `Controllers\RuleController.java`, which is responsible for managing all the Rules and persisting them to the DataBase.
-##### Sweepstakes
-The `Sweepstakes` represent the draws performed in the system, in its folder, there is the `Objects\Sweepstake.java`, the abstraction of the draw, and the `Controllers\SweepstakeController.java`, which is responsible for managing all the draws and persisting them in the DataBase.
-##### Users
-Users contains all the user types on the system, `Common` and `Manager`, and the generalized `User`.
-The `Objects\User.java` is the generalized abstraction of User, and the `Controllers\UserController.java` is responsible for managing authentication and session for all user types.
-The `Objects\Common.java` is the standard user abstraction, and the `Controllers\CommonController.java` is responsible for managing the operations performed for standard users.
-The `Objects\Manager.java` is the abstraction of the administrator user, and the `Controllers\ManagerController.java` is responsible for managing the operations performed for the administrator users.
-##### Other Files
-The `Index.java` is responsible for starting the system.
+The project leverages decoupled domain component boundaries. Each structural folder implements isolated domain models paired with explicit controller logic, reflecting strict encapsulation and design pattern principles.
 
-The `SMS.java` is responsible for starting all the controllers and showing the system prompts.
+### Technical System Documentation
+* 📑 **[Software Requirements Specification (pt-BR)](./Docs/SoftwareSpecification.pdf)**
+* 📊 **[System Class Diagram Modeling (pt-BR)](./Docs/ClassDiagram.pdf)**
 
-The `Database\Database.java` is a test facilitator, it instantiates the `users` and `rules` list, with some default data. There is no real database implemented.
+---
 
-Default User List:
+## 📂 Subsystem Component Division
 
-    Manager:
-        Name: Administrador
-        User: admin
-        Password: admin
+### 1. Items
+Manages the physical or digital objects designated for sweepstake draws.
+* `Objects/Item.java`: The abstraction defining entity item properties.
+* `Controllers/ItemController.java`: Orchestrates collection management and lifecycle state transitions.
 
-        Name: Administrador 2
-        User: admin2
-        Password: admin2
+### 2. Response Standardizer
+* `Response.java`: A core descriptive enum component that standardizes status signals, exceptions, and process outcomes across all isolated controllers, creating a unified communication protocol.
 
-    Common:
-        Name: comum
-        User: comum
-        Password: comum
+### 3. Rules
+Encapsulates conditional logic engines applied to sweepstake draw validations.
+* `Objects/RuleObjects.java`: Abstract schema model for conditional validation rules.
+* `Controllers/RuleController.java`: Evaluates participant eligibility and rule persistence handlers.
 
-        Name: comum 2
-        User: comum2
-        Password: comum2
+### 4. Sweepstakes
+The core transactional engine of the application.
+* `Objects/Sweepstake.java`: Represents individual draw configurations, tracking entry pools and winning index definitions.
+* `Controllers/SweepstakeController.java`: Manages the operational execution and generation of final draws.
 
-Default Rules List:
+### 5. Users & Identity Access Management
+Implements generalized identity access hierarchies (`User` generalized to `Common` and `Manager` sub-entities).
+* `Objects/User.java` & `Controllers/UserController.java`: Manages baseline session contexts, authentications, and global login operations.
+* `Objects/Common.java` & `Controllers/CommonController.java`: Encapsulates operational bounds allowed for generic ticket buyers/holders.
+* `Objects/Manager.java` & `Controllers/ManagerController.java`: Unlocks privileged administrator capabilities (e.g., configuring rules, initializing sweepstakes, creating items).
 
-    Name: Idade
-    Description: O participante deve ser maior de idade
+### 6. System Core & Mock Data Layer
+* `Index.java`: The main runtime application bootstrap container.
+* `SMS.java`: Intercepts system prompts, processes CLI terminal events, and initializes core controllers.
+* `Database/Database.java`: An architectural mock layer simulating volatile static data arrays for system users and default eligibility rules, facilitating immediate automated tests.
 
-    Name: Localidade
-    Description: O participante deve residir no Brasil
+---
 
+## ⚙️ Mock Authentication Matrix
 
-#### Programming Language
-[Java](https://dev.java/learn/) was selected for its familiarity to students.
+Use these predefined credentials stored inside `Database.java` to test roles without creating new accounts:
 
+| User Type | Full Name | Username | Password |
+| :--- | :--- | :--- | :--- |
+| **Manager** | Administrador | `admin` | `admin` |
+| **Manager** | Administrador 2 | `admin2` | `admin2` |
+| **Common** | comum | `comum` | `comum` |
+| **Common** | comum 2 | `comum2` | `comum2` |
 
-#### How to Compile and Run
-##### Step 1: Navigate to the [/Project](https://github.com/matheustheus27/sweepstakes_management_system/tree/main/Project) folder
-##### Step 2: Compile the file Index.java
-    javac Index.java
-##### Step 3: Run the Program
-    java Index
-##### Step 4: Create a User
-At the Sign-up prompt, if you want create a manager user, the hash code is `ADMIN`, for common user, you can type any word in the hash.
-##### Step 5: Login and Use System
-At the Login prompt, you must use the registered credentials. The system will recognize the correct user type and redirect you to the panel.
+### Seeded System Rules:
+* **Age Limit (`Idade`):** The sweepstake entrant must be of legal age (>= 18).
+* **Geographical Constraint (`Localidade`):** The sweepstake entrant must reside in Brazil.
 
-### Screenshots
-<img src="https://github.com/matheustheus27/sweepstakes_management_system/blob/main/Images/index.png?raw=true" alt="Home Screen" width="400"/> <img src="https://github.com/matheustheus27/sweepstakes_management_system/blob/main/Images/auth.png?raw=true" alt="Auth Screen" width="400"/> <img src="https://github.com/matheustheus27/sweepstakes_management_system/blob/main/Images/signup.png?raw=true" alt="Sig-up Screen" width="400"/> <img src="https://github.com/matheustheus27/sweepstakes_management_system/blob/main/Images/login.png?raw=true" alt="Login Screen" width="400"/> <img src="https://github.com/matheustheus27/sweepstakes_management_system/blob/main/Images/common_user_panel.png?raw=true" alt="Common User Panel Screen" width="400"/> <img src="https://github.com/matheustheus27/sweepstakes_management_system/blob/main/Images/manager_user_panel.png?raw=true" alt="Manager User Panel Screen" width="400"/>
+---
 
+## 🚀 Compilation & Local Execution
 
-### Video
-[![SMS - Sweepstakes Management System](https://img.youtube.com/vi/yyRMc8m-QdA/mqdefault.jpg)](https://www.youtube.com/watch?v=yyRMc8m-QdA)
+### 1. Prerequisites
+Ensure you have the [Java Development Kit (JDK)](https://dev.java/learn/) configured on your host workstation environment.
+
+### 2. Navigate to the Source Root
+Open your terminal window and enter the dedicated project project directory:
+```bash
+cd Project
+```
+
+### 3. Compile the Bootstrapper
+Compile the application entry point (the Java compiler will automatically handle tracking local module dependencies):
+```bash
+javac Index.java
+```
+
+### 4. Run the Binary Engine
+Execute the newly compiled Java bytecode environment:
+```bash
+java Index
+```
+
+### 5. User Account Registration Flow
+* Sign-Up: During account setup, if you wish to generate an administrative Manager profile, supply the token validation hash code ADMIN. For standard Common profiles, you can type any arbitrary phrase into the hash security check prompt.
+* Authentication: Access your specific operational panel by entering your credentials at the main sign-in screen prompt.
+
+## 📺 Application Interface Galleries
+* Terminal Execution Steps
+* Authorized Access Interface Layers
+
+## 📸 Media Gallery
+
+<p align="center">
+  <a href="./Images/">
+    <img src="./cover/photo-gallery-cover.jpg" width="45%" style="margin-right: 20px;" alt="View Screenshot Gallery"/>
+  </a>
+  <a href="https://www.youtube.com/watch?v=yyRMc8m-QdA">
+    <img src="./cover/demo-video-cover.jpg" width="45%" alt="Watch Demo Video"/>
+  </a>
+</p>
